@@ -1,0 +1,63 @@
+<?php
+function perroquet($message)
+{
+	echo $message;
+}
+
+perroquet("*******")
+
+
+function perroquet($message, $repetition)
+{
+	for ($i = 1 ; $i <= $repetition ; $i++)
+	{
+		echo $message.'<br />';
+	}
+}
+
+perroquet("*******", 5);
+
+$lignes = 10;
+
+for ($i = 1 ; $i <= $lignes ; $i++)
+{
+	for ($j = 1 ; $j <= $i ; $j++)
+	{
+		echo '*';
+	}	
+	echo '<br />';
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="fr" >
+   <head>
+       <title></title>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   </head>
+   <body>
+<form method="get" action="inscription.php?$_GET['nom']&$_GET['prenom']&$_GET['age']">
+Entrez votre nom :<input type="text" name="nom" id="nom" size="40" required/><br />
+Entrez votre prénom:<input type="text" name="prenom" id="prenom" size="40" required/><br />
+Entrez votre age :<input type="text" name="age" id="age" size="40" required/><br />
+<input type="submit" value="Envoyer" />
+</form>
+   </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr" >
+   <head>
+       <title></title>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   </head>
+   <body>
+<?php
+
+echo 'Nom : '.$_GET['nom'].'<br />Prénom : '.$_GET['prenom'].'<br />Age : '.$_GET['age'];
+
+?>
+
+   </body>
+</html>
