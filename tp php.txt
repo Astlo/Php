@@ -58,6 +58,59 @@ Entrez votre age :<input type="text" name="age" id="age" size="40" required/><br
 echo 'Nom : '.$_GET['nom'].'<br />Prénom : '.$_GET['prenom'].'<br />Age : '.$_GET['age'];
 
 ?>
+   </body>
+</html>
 
+
+
+<!DOCTYPE html>
+<html lang="fr" >
+   <head>
+       <title></title>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   </head>
+   <body>
+<form method="get" action="bissextile.php?$_GET['annee']">
+Entrez l'année :<input type="text" name="annee" id="annee" size="40" required/><br />
+<input type="submit" value="Envoyer" />
+</form>
+   </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr" >
+   <head>
+       <title></title>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   </head>
+   <body>
+<?php
+if (is_numeric($_GET['annee']))
+{
+	/*if (isset($_GET['annee'])==FALSE)
+	{
+		echo 'Choississez une année différente de zéro <a href="formulaires.php">Retour</a>';
+	}
+	elseif (isset($_GET['annee'])== TRUE)
+	{*/
+		if ((($_GET['annee'] % 4) == 0) AND (($_GET['annee'] % 100 ) != 0))
+		{
+			echo $_GET['annee'].' est bissextile';
+		}
+		elseif(($_GET['annee'] % 400) == 0)
+		{
+			echo $_GET['annee'].' est bissextile';
+		}
+		elseif(4==4)
+		{
+			echo $_GET['annee'].' n\'est pas bissextile';
+		}
+	/*}*/
+}
+elseif (is_numeric($_GET['annee'])== FALSE)
+{
+	echo 'Votre année doit etre un entier <a href="formulaires.php">Retour</a>';
+}
+?>
    </body>
 </html>
