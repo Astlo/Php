@@ -114,3 +114,44 @@ elseif (is_numeric($_GET['annee'])== FALSE)
 ?>
    </body>
 </html>
+
+
+
+
+
+<?php
+$db = mysql_connect('localhost', 'root', '')  or die('Erreur de connexion '.mysql_error());
+	
+	// sélection de la base  
+    mysql_select_db('test',$db)  or die('Erreur de selection '.mysql_error()); 
+	
+	$sql = 'SELECT * FROM Persons';
+	
+	$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error()); 
+	
+	
+	$nom_de_la_table="Persons";
+	$nom="Nom";
+	$prenom="Prenom";
+	$age="Age";
+	
+	
+	
+	$contenu=mysql_query('SELECT '.$nom.','.$prenom.','.$age.' FROM '.$nom_de_la_table);
+	
+	echo '<table border>
+		<tr>
+		<th>Nom</th>
+		<th>Prenom</th>
+		<th>Age</th>';
+	
+	while($affiche = mysql_fetch_array($contenu))
+	{
+	echo '<tr>
+			<td>'.$affiche["$nom"].'</td> 
+			<td>'.$affiche["$prenom"].'</td> 
+			<td>'.$affiche["$age"].'</td> 
+		</tr>';
+	}
+	echo '</table><br />';
+?>
